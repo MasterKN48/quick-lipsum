@@ -561,7 +561,7 @@ var _ref = Object(preact_min["h"])(
 
 var _ref2 = Object(preact_min["h"])(
   "label",
-  { htmlFor: "para" },
+  { "for": "para" },
   "Paragraph "
 );
 
@@ -629,6 +629,30 @@ var home_Home = function Home() {
     setMsg("");
     copyToClip();
   };
+  var saveAs = function saveAs() {
+    //console.log("saving");
+    var data = document.getElementById("paragraph").value;
+    //console.log(data);
+    download(data, "lipsum-lorem.txt", "text/plain");
+    function download(data, filename, type) {
+      var file = new Blob([data], { type: type });
+      if (window.navigator.msSaveOrOpenBlob)
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);else {
+        // Others
+        var a = document.createElement("a"),
+            url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
+      }
+    }
+  };
   return Object(preact_min["h"])(
     "div",
     { "class": "container margin" },
@@ -641,7 +665,7 @@ var home_Home = function Home() {
         { "class": "column" },
         Object(preact_min["h"])(
           "form",
-          { onSubmit: submit, "class": "pure-form" },
+          { onSubmit: submit },
           _ref2,
           Object(preact_min["h"])("input", {
             type: "number",
@@ -688,19 +712,28 @@ var home_Home = function Home() {
       Object(preact_min["h"])(
         "div",
         { "class": "column" },
-        Object(preact_min["h"])("textarea", {
-          id: "paragraph",
-          name: "paragraph",
-          value: paragraph,
-          onClick: function onClick(e) {
-            e.target.focus();
-            e.target.select();
-            var msg = document.execCommand("copy");
-            setMsg(msg ? "Copied to clipboard" : "Something went wrong");
-          },
-          readOnly: true,
-          placeholder: "Lipsum Lorem Text"
-        })
+        Object(preact_min["h"])(
+          "button",
+          { onClick: saveAs, className: "button button-outline btn-sm" },
+          "Save as text file"
+        ),
+        Object(preact_min["h"])(
+          "label",
+          null,
+          Object(preact_min["h"])("textarea", {
+            id: "paragraph",
+            name: "paragraph",
+            value: paragraph,
+            onClick: function onClick(e) {
+              e.target.focus();
+              e.target.select();
+              var msg = document.execCommand("copy");
+              setMsg(msg ? "Copied to clipboard" : "Something went wrong");
+            },
+            readOnly: true,
+            placeholder: "Lipsum Lorem Text"
+          })
+        )
       )
     )
   );
@@ -722,7 +755,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // Code-splitting is automated for routes
 
 
-var app__ref = Object(preact_min["h"])(home, { path: "/quick-lipsum/" });
+var app__ref = Object(preact_min["h"])(home, { path: "/" });
 
 var app_App = function (_Component) {
   _inherits(App, _Component);
