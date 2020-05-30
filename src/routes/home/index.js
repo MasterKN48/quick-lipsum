@@ -51,13 +51,38 @@ const Home = () => {
     setMsg("");
     copyToClip();
   };
+  const saveAs = () => {
+    //console.log("saving");
+    let data = document.getElementById("paragraph").value;
+    //console.log(data);
+    download(data, "lipsum-lorem.txt", "text/plain");
+    function download(data, filename, type) {
+      var file = new Blob([data], { type: type });
+      if (window.navigator.msSaveOrOpenBlob)
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+      else {
+        // Others
+        var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
+      }
+    }
+  };
   return (
     <div class="container margin">
       <h1>Quick-Lipsum</h1>
       <div class="row">
         <div class="column">
-          <form onSubmit={submit} class="pure-form">
-            <label htmlFor="para">Paragraph </label>
+          <form onSubmit={submit}>
+            <label for="para">Paragraph </label>
             <input
               type="number"
               name="para"
@@ -92,19 +117,24 @@ const Home = () => {
           ) : null}
         </div>
         <div class="column">
-          <textarea
-            id="paragraph"
-            name="paragraph"
-            value={paragraph}
-            onClick={(e) => {
-              e.target.focus();
-              e.target.select();
-              let msg = document.execCommand("copy");
-              setMsg(msg ? "Copied to clipboard" : "Something went wrong");
-            }}
-            readOnly
-            placeholder="Lipsum Lorem Text"
-          ></textarea>
+          <button onClick={saveAs} className="button button-outline btn-sm">
+            Save as text file
+          </button>
+          <label>
+            <textarea
+              id="paragraph"
+              name="paragraph"
+              value={paragraph}
+              onClick={(e) => {
+                e.target.focus();
+                e.target.select();
+                let msg = document.execCommand("copy");
+                setMsg(msg ? "Copied to clipboard" : "Something went wrong");
+              }}
+              readOnly
+              placeholder="Lipsum Lorem Text"
+            ></textarea>
+          </label>
         </div>
       </div>
     </div>

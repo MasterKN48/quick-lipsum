@@ -32,3 +32,8 @@ textarea {
 #para {
   width: 50%;
 }
+.btn-sm {
+  height: 30px !important;
+  padding: 1rem !important;
+  line-height: 0rem !important;
+}
