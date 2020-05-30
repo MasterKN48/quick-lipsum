@@ -1,4 +1,4 @@
-### Quick Lipsum Lorem Text Generator <sup>*beta*</sup>
+### Quick Lorem ipsum (Lipsum) Text Generator <sup>*beta*</sup>
 
 ***A quick way to copy or generate Lorem ipsum text as dummy data for your project with single click only***.
 
