@@ -1,0 +1,21 @@
+{
+  "name": "Quick-Lipsum",
+  "short_name": "Quick-Lipsum",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fafafa",
+  "theme_color": "#9b4dca",
+  "icons": [
+    {
+      "src": "/assets/icons/android-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icons/android-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
