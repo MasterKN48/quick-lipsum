@@ -755,7 +755,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // Code-splitting is automated for routes
 
 
-var app__ref = Object(preact_min["h"])(home, { path: "/" });
+var app__ref = Object(preact_min["h"])(home, { path: "/quick-lipsum/" });
 
 var app_App = function (_Component) {
   _inherits(App, _Component);
