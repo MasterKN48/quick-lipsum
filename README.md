@@ -1,6 +1,6 @@
 ### Quick Lipsum Lorem Text Generator <sup>*beta*</sup>
 
-***A quick way to copy or generate lipsum lorem text as dummy data for your project with single click only***.
+***A quick way to copy or generate Lorem ipsum text as dummy data for your project with single click only***.
 
 https://masterkn48.github.io/quick-lipsum
 
