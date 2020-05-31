@@ -20,6 +20,9 @@ Built with:
 >
 > Milligram CSS v1.3.0
 
+`It uses web clipboard api and execommand in fallback mode`
+
+
 ### CLI Commands
 
 ``` bash
