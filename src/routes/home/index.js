@@ -95,6 +95,7 @@ const Home = () => {
               placeholder="Enter Number of paragraph"
             />
             <br />
+            <label>
             <input
               type="checkbox"
               onChange={(e) => {
@@ -105,6 +106,7 @@ const Home = () => {
               id="tag"
             ></input>{" "}
             Include Paragraph Tag
+            </label>
             <br />
             <button class="button">Generate</button>
           </form>
