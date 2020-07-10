@@ -96,16 +96,16 @@ const Home = () => {
             />
             <br />
             <label>
-            <input
-              type="checkbox"
-              onChange={(e) => {
-                setTag({ type: e.target.value, status: true });
-              }}
-              value="p"
-              name="tag"
-              id="tag"
-            ></input>{" "}
-            Include Paragraph Tag
+              <input
+                type="checkbox"
+                onChange={(e) => {
+                  setTag({ type: e.target.value, status: e.target.checked });
+                }}
+                value="p"
+                name="tag"
+                id="tag"
+              ></input>{" "}
+              Include Paragraph Tag
             </label>
             <br />
             <button class="button">Generate</button>
